@@ -1,0 +1,58 @@
+<div class="container">
+    <h2 style="text-align: center; padding: 6px; font-family: 'Archivo', sans-serif;">Request more Product Inventory</h2>
+
+    <div class="row align-items-center">
+        <div class="col"></div>
+        <div class="col">
+          <div class="container-md">
+            <form #request="ngForm" (ngSubmit)="addProductRequest(request.value.quantity, request.value.id)">
+                <div class="mb-3">
+                  <label class="form-label">Product Name</label>
+                  <input type="text" class="form-control" name="id" ngModel>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Quantity</label>
+                    <input type="number" class="form-control" name="quantity" ngModel>
+                </div>
+                <div class="d-grid gap-2">
+                  <button type="submit" class="btn btn-success" id="addProduct">Request Product</button>
+                  <button type="reset" class="btn btn-link" id="reset">Reset</button>
+                </div>
+    
+            </form>
+        </div>
+        </div>
+        <div class="col"> </div>
+    </div>
+
+    <div class="SendRequestArea">
+        <table style="width:100%;">
+            <thead>
+
+            </thead>
+            <tbody>
+                <div *ngFor="let product of products">
+                    <form #productQuantityRef="ngForm">
+                        <tr>
+                            <td style="width:17%;"><strong>{{product.id}}</strong></td>
+                            <td style="width:17%;">{{product.quantity}}</td>
+                            <td style="width:17%;">${{product.price}}</td>
+                            <td style="width:17%;">
+                                <div class="form-floating itemInput">
+                                    <input type="number" class="form-control" name="quantity"  id="floatingInput" ngModel>
+                                    <label for="floatingInput">Quantity</label>
+                                </div> 
+                            </td>
+                            <td style="width:17%;">
+                                <div class="">
+                                    <button class="btn btn-primary sr_btn" type="button" (click)="addProductRequest(productQuantityRef.value.quantity,product.id)">Add</button>
+                                    <button class="btn btn-warning sr_btn" type="button" (click)="deleteProductRequest(productQuantityRef.value.quantity,product.id)">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </form>
+                </div>
+            </tbody>
+        </table>   
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="container">
+    <h2 style="text-align: center;">Update Order Status</h2>
+    <h4 style="text-align: center;">All customer order statuses should be updated here!</h4>
+        <select [(ngModel)]="selectedOrderType" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <option selected>Select Order Status to Update</option>
+            <option value="cancelled">Cancelled Orders</option>
+            <option value="pending">Pending Orders</option>
+            <option value="shipped">Shipped Orders</option>
+            <option value="outForDelivery">Out for Delivery Orders</option>
+            <option value="delivered">Delivered Orders</option>
+        </select>
+        
+        <app-cancelled-orders *ngIf="selectedOrderType == 'cancelled'"></app-cancelled-orders>
+        <app-pending-orders *ngIf="selectedOrderType == 'pending'"></app-pending-orders>
+        <app-shipped-orders *ngIf="selectedOrderType == 'shipped'"></app-shipped-orders>
+        <app-out-for-delivery-orders *ngIf="selectedOrderType == 'outForDelivery'"></app-out-for-delivery-orders>
+        <app-delivered-orders *ngIf="selectedOrderType == 'delivered'"></app-delivered-orders>
+</div>

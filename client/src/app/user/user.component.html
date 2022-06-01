@@ -1,0 +1,96 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand">XYZ Solutions - Grocery</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+              <button class="btn btn-outline-primary" type="button" (click)="homeBtn()">Home</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-outline-primary" type="button" (click)="showFundBtn()">Funds</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-outline-primary" type="button" (click)="showEditBtn()">Edit Profile</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-outline-primary" type="button" (click)="showCartBtn()">Cart</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-outline-primary" type="button" (click)="showOrderBtn()">Order Status</button>
+          </li>
+        </ul>
+        <a class="navbar-brand">{{currentUser}}</a>
+        <button class="btn btn-danger" type="button" (click)="logout_user()">Log Out</button>
+      </div>
+    </div>
+</nav>
+
+<div class="container" *ngIf="showCart">
+  
+    <h3>Cart</h3>
+    <div class="row">
+      <div class="col-sm-5"><strong>Item</strong></div>
+      <div class="col-sm-6"><strong>Quantity</strong></div>
+      <div class="col-sm-1"><strong>Total($)</strong></div>
+      <hr>
+    </div>
+    
+      
+    <div class="name" *ngFor= "let item of localCart">
+      <div class="row">
+        <div class="col-sm-2"><strong>{{item[0]}}</strong></div>
+        <br/>
+        <div class="col-sm-1">$ {{item[1][1]}}</div>
+
+        <div class="col-sm-2">
+          <button id="removeBtn" class="btn btn-outline-danger" type="button" (click)="removeFromCart(item)">Remove</button>
+        </div>
+        <div class="col-sm-3"> 
+          <input type="number" id="orderedQuantity" value={{item[1][0]}} step="1" min="1" class="col-2"  #updatedQty>
+        </div>
+        <div class="col-sm-3">
+          <button class="btn btn-outline-warning" type="button" (click)="updateFromCart(item[0],updatedQty.value)">Update</button>
+        </div>  
+        <div class="col-sm-1">
+          <p>{{(item[1][1]*item[1][0]).toPrecision(2)}}</p>
+        </div>
+      <hr>
+      </div>
+     
+    </div>
+    <div class="row">
+
+        <div class="col-sm-5"><strong>Total</strong></div>
+        <div class="col-sm-6"><strong>{{totalQty}}</strong></div>
+        <div class="col-sm-1"><strong>$ {{cartTotal}}</strong></div>
+        <hr>
+      </div>
+      <div class="col-md-12 text-center">
+        <button class="btn btn-primary active mb-8" type="button" (click)="buyOrder()">Buy Now</button>
+      </div>
+</div>
+<app-edit-profile *ngIf="showEdit"></app-edit-profile>
+<div class="container" *ngIf="!showEdit && !showCart">
+<app-funds *ngIf="showFunds"></app-funds>
+
+
+<div class="" *ngIf="showHome">
+  <h3>Items</h3>
+  <div class="item-container">
+    <div class="name" *ngFor= "let item of items">
+
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://cdn-icons-png.flaticon.com/512/1261/1261163.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{item.id}}</h5>
+          <p class="card-text">{{item.price}}</p>
+          <button id="addBtn" class="btn btn-outline-primary" type="button" (click)="addToCart(item.id,item.price)">Add</button>
+        </div>
+      </div>
+  </div>
+    
+      
+      
+    </div>
+</div>
+<app-order-status *ngIf="showOrder"></app-order-status>

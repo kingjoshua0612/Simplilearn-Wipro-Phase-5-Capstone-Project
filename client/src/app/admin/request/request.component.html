@@ -1,0 +1,8 @@
+<div class="container">
+    <h3>Requests</h3>
+    <div class="name" *ngFor= "let item of items">
+      <strong>{{item.request_type.toUpperCase()}} {{item.quantity}} {{item.id}}</strong>
+        <button id="doneBtn" class="btn btn-outline-primary" type="button" (click)="resolve(item.id)">Done</button>
+      <hr>
+    </div>
+</div>

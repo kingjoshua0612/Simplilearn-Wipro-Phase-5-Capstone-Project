@@ -1,0 +1,7 @@
+#admin_login
+id = admin2
+pass = abc
+
+#employee_login
+username = aalex1
+pass = aalex1

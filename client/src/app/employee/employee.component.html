@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand">XYZ Solutions - Grocery</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+              <button class="btn btn-outline-primary" type="button" (click)="showSendRequestBtn()" style="margin:5px 2px;">Send Request</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-outline-primary" type="button" (click)="showUpdateOrderStatusBtn()" style="margin:5px 2px;">Update Order Status</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-outline-primary" type="button" (click)="showUnlockUsersBtn()" style="margin:5px 2px;">Unlock Users</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-outline-primary" type="button" (click)="showEditBtn()" style="margin:5px 2px;">Edit Profile</button>
+          </li>
+        </ul>
+        <a class="navbar-brand">{{currentEmployee}}</a>
+        <button class="btn btn-danger" type="button" (click)="logout_user()" style="margin:5px 2px;">Log Out</button>
+      </div>
+    </div>
+</nav>
+
+<app-send-request *ngIf="clicked_sendReqPage"></app-send-request>
+<app-update-order-status *ngIf="clicked_updateOrderStatus"></app-update-order-status>
+<app-unlock-users *ngIf="clicked_unlockUsers"></app-unlock-users>
+<app-edit-employee-profile *ngIf="clicked_editProfile"></app-edit-employee-profile>

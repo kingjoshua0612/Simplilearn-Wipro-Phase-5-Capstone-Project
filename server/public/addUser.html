@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addUser</title>
+</head>
+<body>
+
+    <form action="/v1/profile/adduser" method="post">
+                    
+        <div class="row">
+            <div class="col">
+                <label>User ID: </label>
+            </div>
+            <div class="col">
+                <input type="text" name="userId">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label>Name: </label>
+            </div>
+            <div class="col">
+                <input type="text" name="name">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label>Email:</label>
+            </div>
+            <div class="col">
+                <input type="text" name="email">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label>Password:</label>
+            </div>
+            <div class="col">
+                <input type="text" name="password">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label>Funds:</label>
+            </div>
+            <div class="col">
+                <input type="text" name="funds">
+            </div>
+        </div>
+        <input type="submit" class="btn btn-outline-dark" value="Add User">
+        <input type="reset"  class="btn btn-outline-danger" value="Reset">
+    </form>
+    
+</body>
+</html>

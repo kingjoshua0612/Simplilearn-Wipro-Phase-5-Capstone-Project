@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <div class="container-fluid">
+    <a class="navbar-brand">XYZ Solutions - Grocery</a>
+  </div>
+</nav>
+<div>
+  <div class="row align-items-center" style="margin-left: 0px;" >
+    <div class="col" id="user">
+        <div class="container-md" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);border-radius: 10px;
+        background-color: #e1f5fe;">
+        <br><b> <label style="margin-left: 180px; font-size: larger;" >User Login</label></b> <br>
+        <hr>
+            <form #userInfo="ngForm" (ngSubmit)="signiInUser(userInfo.value)">
+                <div class="mb-3">
+                  <label class="form-label">Username</label>
+                  <input type="text" class="form-control" name="userName" ngModel>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" class="form-control" name="password" ngModel>
+                </div>
+                <div class="d-grid gap-2">
+                  <button type="submit" class="btn btn-success"  >Sign In</button>
+                  <button type="button" class="btn btn-primary" id="signUp" (click)="signUp()">Sign Up</button>
+                  <button type="button" class="btn btn-warning" id="raiseTicket" (click)="raiseTicket()">Raise Ticket</button>
+                </div>
+            </form>
+            <br>
+        </div>
+    </div>
+    <div class="col">
+        <div class="container-md" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);border-radius: 10px; background-color: #e1f5fe;
+        ">
+        <br><b> <label style="margin-left: 150px; font-size: larger;" >Employee Login</label></b><br>
+        <hr>
+            <form #employeeInfo="ngForm" (ngSubmit)="signiInEmployee(employeeInfo.value)">
+                <div class="mb-3">
+                  <label class="form-label">Employee ID</label>
+                  <input type="text" class="form-control" name="id" ngModel>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" class="form-control" name="password" ngModel>
+                </div>
+                <div class="d-grid gap-2">
+                  <button type="submit" class="btn btn-success">Sign In</button>
+                </div>
+            </form>
+            <br>
+        </div>
+    </div>
+    <div class="col" style="margin-right: 2px;">
+        <div class="container-md" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3); border-radius: 10px;
+        background-color:#e1f5fe;">
+        <br><b> <label style=" font-size: larger;" >Admin Login</label></b><br>
+        <hr>
+            <form #adminInfo="ngForm" (ngSubmit)="signiInAdmin(adminInfo.value)">
+                <div class="mb-3">
+                  <label class="form-label">Admin ID</label>
+                  <input type="text" class="form-control" name="adminID" ngModel>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" class="form-control" name="password" ngModel>
+                </div>
+                <div class="d-grid gap-2">
+                  <button type="submit" class="btn btn-success">Sign In</button>
+                </div>
+            </form>
+            <br>
+        </div>
+    </div>
+  </div>
+</div>
